@@ -136,7 +136,7 @@ class RuleFactory
      * @return AbstractRule
      * @throws \InvalidArgumentException
      */
-    public function createRule(mixed $name, mixed $options = null, string $messageTemplate = null, string $label = null): AbstractRule
+    public function createRule(mixed $name, mixed $options = null, ?string $messageTemplate = null, ?string $label = null): AbstractRule
     {
         $validator = $this->construcRuleByNameAndOptions($name, $options);
 
@@ -160,7 +160,7 @@ class RuleFactory
      *
      * @return $this
      */
-    public function setMessages(string $rule, string $messageWithoutLabel = null, string $messageWithLabel = null)
+    public function setMessages(string $rule, ?string $messageWithoutLabel = null, ?string $messageWithLabel = null)
     {
         if ($messageWithoutLabel) {
             $this->errorMessages[$rule] = $messageWithoutLabel;

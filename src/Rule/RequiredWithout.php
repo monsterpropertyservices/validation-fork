@@ -14,7 +14,7 @@ class RequiredWithout extends Required
         0 => self::OPTION_ITEM
     ];
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
 

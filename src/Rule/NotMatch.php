@@ -8,7 +8,7 @@ class NotMatch extends Matching
     const MESSAGE = 'This input does match {item}';
     const LABELED_MESSAGE = '{label} does match {item}';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         parent::validate($value, $valueIdentifier);
         $this->success = !$this->success;

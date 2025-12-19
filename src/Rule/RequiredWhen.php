@@ -43,7 +43,7 @@ class RequiredWhen extends Required
         return $rule; // @phpstan-ignore-line
     }
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
 

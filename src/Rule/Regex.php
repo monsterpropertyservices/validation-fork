@@ -14,7 +14,7 @@ class Regex extends AbstractRule
         0 => self::OPTION_PATTERN
     ];
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (isset($this->options['pattern'])) {
