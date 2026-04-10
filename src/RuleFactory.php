@@ -107,10 +107,12 @@ class RuleFactory
      *
      * @param string $name
      * @param string|class-string $class
+     * @param ?string $errorMessage
+     * @param ?string $labeledErrorMessage
      *
      * @return $this
      */
-    public function register(string $name, string $class, string $errorMessage = '', string $labeledErrorMessage = ''): self
+    public function register(string $name, string $class, ?string $errorMessage = '', ?string $labeledErrorMessage = ''): self
     {
         if (is_subclass_of($class, '\Sirius\Validation\Rule\AbstractRule')) {
             $this->validatorsMap[$name] = $class;
