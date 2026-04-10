@@ -14,7 +14,7 @@ class InList extends AbstractRule
         0 => self::OPTION_LIST
     ];
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (!isset($this->options['list'])) {

@@ -172,7 +172,7 @@ abstract class AbstractRule
     /**
      * Validates a value
      */
-    abstract public function validate(mixed $value, string $valueIdentifier = null): bool;
+    abstract public function validate(mixed $value, ?string $valueIdentifier = null): bool;
 
     /**
      * Sets the error message prototype that will be used when

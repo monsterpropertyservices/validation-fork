@@ -123,7 +123,7 @@ class Validator implements ValidatorInterface
      */
     protected ?WrapperInterface $dataWrapper = null;
 
-    public function __construct(RuleFactory $ruleFactory = null, ErrorMessage $errorMessagePrototype = null)
+    public function __construct(?RuleFactory $ruleFactory = null, ?ErrorMessage $errorMessagePrototype = null)
     {
         if (!$ruleFactory) {
             $ruleFactory = new RuleFactory();
@@ -296,7 +296,7 @@ class Validator implements ValidatorInterface
         return count($this->messages) === 0;
     }
 
-    public function addMessage(string $item, string|ErrorMessage $message = null): static
+    public function addMessage(string $item, string|ErrorMessage|null $message = null): static
     {
         if ($message === null || $message === '') {
             return $this;
@@ -312,7 +312,7 @@ class Validator implements ValidatorInterface
     /**
      * Clears the messages of an item
      */
-    public function clearMessages(string $item = null): static
+    public function clearMessages(?string $item = null): static
     {
         if (is_string($item)) {
             if (array_key_exists($item, $this->messages)) {
@@ -332,7 +332,7 @@ class Validator implements ValidatorInterface
      * @return array<int|string, string>
      */
     public
-    function getMessages(string $item = null): array
+    function getMessages(?string $item = null): array
     {
         if (is_string($item)) {
             return array_key_exists($item, $this->messages) ? $this->messages[$item] : [];

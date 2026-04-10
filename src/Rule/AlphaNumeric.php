@@ -9,7 +9,7 @@ class AlphaNumeric extends AbstractRule
 
     const LABELED_MESSAGE = '{label} must contain only letters and digits';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         $this->success = (bool)ctype_alnum((string)str_replace(' ', '', $value));

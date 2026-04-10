@@ -15,7 +15,7 @@ class ArrayMaxLength extends AbstractRule
         self::OPTION_MAX
     ];
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (!isset($this->options['max'])) {

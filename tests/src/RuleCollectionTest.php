@@ -12,7 +12,7 @@ test('add and remove', function () {
     $this->collection->attach(new Required());
     expect(count($this->collection))->toEqual(1);
 
-    $this->collection->detach(new Required());
+    $this->collection->offsetUnset(new Required());
     expect(count($this->collection))->toEqual(0);
 });
 

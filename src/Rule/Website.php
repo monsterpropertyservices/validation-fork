@@ -10,7 +10,7 @@ class Website extends AbstractRule
     const MESSAGE = 'This input must be a valid website address';
     const LABELED_MESSAGE = '{label} must be a valid website address';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         $this->success = (substr($value, 0, 2) == '//')

@@ -4,7 +4,7 @@ use Sirius\Validation\ErrorMessage;
 use \Sirius\Validation\Rule\AbstractRule;
 class FakeRule extends AbstractRule
 {
-    function validate($value, string $valueIdentifier = null): bool
+    function validate($value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         $this->success = (bool)$value && isset($this->context) && $this->context->getItemValue('key');
