@@ -11,7 +11,7 @@ class Number extends AbstractRule
     public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
-        $this->success = (bool)filter_var($value, FILTER_VALIDATE_FLOAT) || (string)$value === '0';
+        $this->success = filter_var($value, FILTER_VALIDATE_FLOAT) !== false;
 
         return $this->success;
     }
