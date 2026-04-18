@@ -13,24 +13,24 @@ class RuleCollection extends SplObjectStorage
     #[ReturnTypeWillChange]
     public function attach(mixed $rule, mixed $data = null): void
     {
-        if ($this->contains($rule)) {
+        if ($this->offsetExists($rule)) {
             return;
         }
         if ($rule instanceof Rule\Required) {
             $rules = [];
             foreach ($this as $r) {
                 $rules[] = $r;
-                $this->detach($r);
+                $this->offsetUnset($r);
             }
             array_unshift($rules, $rule);
             foreach ($rules as $r) {
-                parent::attach($r);
+                $this->offsetSet($r);
             }
 
             return;
         }
 
-        parent::attach($rule);
+        $this->offsetSet($rule);
     }
 
     #[ReturnTypeWillChange]

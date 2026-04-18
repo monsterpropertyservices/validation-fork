@@ -8,7 +8,7 @@ class EmailDomain extends AbstractRule
     const MESSAGE = 'This the email address does not belong to a valid domain';
     const LABELED_MESSAGE = '{label} does not belong to a valid domain';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $value = (string)$value;
         $this->value = $value;

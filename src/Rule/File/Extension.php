@@ -31,7 +31,7 @@ class Extension extends AbstractRule
         return parent::setOption($name, $value);
     }
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (!file_exists($value)) {

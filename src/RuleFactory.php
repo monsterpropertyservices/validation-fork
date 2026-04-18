@@ -107,10 +107,12 @@ class RuleFactory
      *
      * @param string $name
      * @param string|class-string $class
+     * @param ?string $errorMessage
+     * @param ?string $labeledErrorMessage
      *
      * @return $this
      */
-    public function register(string $name, string $class, string $errorMessage = '', string $labeledErrorMessage = ''): self
+    public function register(string $name, string $class, ?string $errorMessage = '', ?string $labeledErrorMessage = ''): self
     {
         if (is_subclass_of($class, '\Sirius\Validation\Rule\AbstractRule')) {
             $this->validatorsMap[$name] = $class;
@@ -136,7 +138,7 @@ class RuleFactory
      * @return AbstractRule
      * @throws \InvalidArgumentException
      */
-    public function createRule(mixed $name, mixed $options = null, string $messageTemplate = null, string $label = null): AbstractRule
+    public function createRule(mixed $name, mixed $options = null, ?string $messageTemplate = null, ?string $label = null): AbstractRule
     {
         $validator = $this->construcRuleByNameAndOptions($name, $options);
 
@@ -160,7 +162,7 @@ class RuleFactory
      *
      * @return $this
      */
-    public function setMessages(string $rule, string $messageWithoutLabel = null, string $messageWithLabel = null)
+    public function setMessages(string $rule, ?string $messageWithoutLabel = null, ?string $messageWithLabel = null)
     {
         if ($messageWithoutLabel) {
             $this->errorMessages[$rule] = $messageWithoutLabel;

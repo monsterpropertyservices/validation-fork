@@ -45,7 +45,7 @@ class Image extends AbstractRule
         return parent::setOption($name, $value);
     }
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (!is_array($value) || !isset($value['tmp_name'])) {

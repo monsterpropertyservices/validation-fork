@@ -8,7 +8,7 @@ class IpAddress extends AbstractRule
     const MESSAGE = 'This input is not a valid IP address';
     const LABELED_MESSAGE = '{label} is not a valid IP address';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         // Do not allow private and reserved range IPs

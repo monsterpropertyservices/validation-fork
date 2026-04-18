@@ -19,7 +19,7 @@ class Date extends AbstractRule
         0 => self::OPTION_FORMAT
     ];
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         $this->success = $value == date(

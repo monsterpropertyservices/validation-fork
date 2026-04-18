@@ -25,8 +25,8 @@ class ValueValidator
     protected string $label;
 
     public function __construct(
-        RuleFactory  $ruleFactory = null,
-        ErrorMessage $errorMessagePrototype = null,
+        ?RuleFactory  $ruleFactory = null,
+        ?ErrorMessage $errorMessagePrototype = null,
         string       $label = ''
     )
     {
@@ -80,7 +80,7 @@ class ValueValidator
      * $validator->add('minlength(min=2)({label} should have at least {min} characters)(Field label)');
      *
      */
-    public function add(mixed $name, $options = null, string $messageTemplate = null, string $label = null): self
+    public function add(mixed $name, $options = null, ?string $messageTemplate = null, ?string $label = null): self
     {
         if (is_array($name)) {
             return $this->addMultiple($name);
@@ -148,7 +148,7 @@ class ValueValidator
             return $this;
         }
         $validator = $this->ruleFactory->createRule($name, $options);
-        $this->rules->detach($validator);
+        $this->rules->offsetUnset($validator);
 
         return $this;
     }
@@ -210,7 +210,7 @@ class ValueValidator
     /**
      * @param DataWrapper\WrapperInterface|null $context
      */
-    public function validate(mixed $value, string $valueIdentifier = '', DataWrapper\WrapperInterface $context = null): bool
+    public function validate(mixed $value, string $valueIdentifier = '', ?DataWrapper\WrapperInterface $context = null): bool
     {
         $this->messages = [];
         $isRequired = false;

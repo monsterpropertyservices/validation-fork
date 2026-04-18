@@ -8,6 +8,7 @@ beforeEach(function () {
 });
 
 test('validation', function () {
+    expect($this->rule->validate(0))->toBeTrue();
     expect($this->rule->validate('0'))->toBeTrue();
     expect($this->rule->validate('0.3'))->toBeTrue();
     expect($this->rule->validate('0,3'))->toBeFalse();

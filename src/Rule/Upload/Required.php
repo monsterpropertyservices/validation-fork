@@ -17,7 +17,7 @@ class Required extends AbstractRule
 
     const LABELED_MESSAGE = '{label} is required';
 
-    public function validate(mixed $value, string $valueIdentifier = null): bool
+    public function validate(mixed $value, ?string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (!is_array($value) || !isset($value['tmp_name']) ||
